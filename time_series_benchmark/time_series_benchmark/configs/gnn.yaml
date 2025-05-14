@@ -1,0 +1,44 @@
+m: GNN
+variants: [Base]  # ToDo [Base, Attention, Residual]
+history: 336
+horizons: [48, 96, 192, 336]
+batch_sizes: [64]
+lrs: [0.0002]
+seeds: [0]
+epochs: 50
+
+params:
+  hidden_dims: [[64, 128, 64]]   # Список скрытых размерностей для каждого слоя
+  n_layers: 3                    # Количество слоев GNN
+  dropout: 0.1                   # Dropout для регуляризации
+  norm_type: batch               # Тип нормализации: batch/layer/none
+  activation: relu               # Функция активации: relu/gelu/leaky_relu
+
+datasets:
+  - name: PEMS08_debug
+    file: ./data/PEMS08_debug.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 12            # Размерность эмбеддингов (если используются)
+      adj_threshold: 0.1          # Порог для построения матрицы смежности
+
+  # - name: PEMS08
+  #   file: ./data/PEMS08.npy
+  #   split: [0.7, 0.1, 0.2]
+  #   params:
+  #     d_embedding: 12            # Размерность эмбеддингов (если используются)
+  #     adj_threshold: 0.1          # Порог для построения матрицы смежности
+    
+  # - name: PEMS04
+  #   file: ./data/PEMS04.npy
+  #   split: [0.7, 0.1, 0.2]
+  #   params:
+  #     d_embedding: 12
+  #     adj_threshold: 0.1
+    
+  # - name: PEMS03
+  #   file: ./data/PEMS03.npy
+  #   split: [0.7, 0.1, 0.2]
+  #   params:
+  #     d_embedding: 12
+  #     adj_threshold: 0.1

@@ -1,0 +1,30 @@
+m: DLinear
+variants: [Base, Hyper]
+history: 336
+horizons: [48, 96, 192, 336]
+batch_sizes: [64]
+lrs: [0.0002]
+seeds: [0]
+epochs: 50
+
+params:
+  d_hyper_hidden: [512]
+
+datasets:
+  - name: PEMS08
+    file: ./data/PEMS08.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 12
+    
+  - name: PEMS04
+    file: ./data/PEMS04.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 12
+    
+  - name: PEMS03
+    file: ./data/PEMS03.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 12
