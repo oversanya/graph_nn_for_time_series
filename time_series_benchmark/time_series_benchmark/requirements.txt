@@ -1,0 +1,11 @@
+numpy
+scikit-learn
+pandas
+pyarrow
+fastparquet
+torch
+lightning
+tqdm
+wandb
+io
+pyyaml
